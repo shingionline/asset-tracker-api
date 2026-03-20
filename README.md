@@ -141,8 +141,6 @@ For easy API testing, download the Postman collection:
 
 [Download Postman Collection](https://github.com/shingionline/asset-tracker-api/blob/main/storage/app/public/postman-collection.json)
 
-The collection includes pre-configured requests for all available endpoints with sample data.
-
 ## 🧪 Sample Data
 
 The application includes comprehensive seed data:
