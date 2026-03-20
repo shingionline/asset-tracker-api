@@ -67,7 +67,6 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
 
 5. **Access the application**
    - API Base URL: `http://localhost:8005/api/`
-   - Application runs on port 8005
 
 ## 📡 API Endpoints
 
