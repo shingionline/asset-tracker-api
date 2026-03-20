@@ -1,0 +1,72 @@
+{
+  "info": {
+    "_postman_id": "275f9bd7-182e-4a7b-8580-ee6f1a660800",
+    "name": "Asset Tracker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "15317885"
+  },
+  "item": [
+    {
+      "name": "create asset",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Samsung A30\",\r\n  \"serial_number\": \"SM-GHTYDIOPD-5102\",\r\n  \"status\": \"available\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8005/api/assets",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8005",
+          "path": [
+            "api",
+            "assets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get asset info",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8005/api/assets/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8005",
+          "path": [
+            "api",
+            "assets",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
