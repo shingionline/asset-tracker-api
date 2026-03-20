@@ -49,6 +49,7 @@ class InspectionSeeder extends Seeder
         $assets = Asset::all();
 
         foreach ($assets as $asset) {
+            
             $inspectionCount = rand(5, 10);
             
             for ($i = 0; $i < $inspectionCount; $i++) {
