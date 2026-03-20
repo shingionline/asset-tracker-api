@@ -13,7 +13,7 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
 
 ## 🛠️ Technologies Used
 
-- **Laravel 13** - Modern PHP framework
+- **Laravel 13.1.1** - Modern PHP framework
 - **PHP 8.3+** - Latest PHP version support
 - **MySQL 8.4** - Database management
 - **Laravel Sail** - Docker development environment
