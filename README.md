@@ -36,9 +36,7 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
 - `notes` - Inspection notes and comments
 - `created_at` / `updated_at` - Timestamps
 
-## 🚀 Installation
-
-### Setup Instructions
+## 🚀 Setup Instructions
 
 1. **Clone the repository**
    ```bash
