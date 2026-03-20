@@ -85,15 +85,37 @@ Returns an asset with its latest 3 inspections.
   "asset": {
     "id": 1,
     "name": "HP Laptop ProBook 450",
-    "serial_number": "HP450-2024-001", 
+    "serial_number": "HP450-2024-001",
     "status": "available",
+    "created_at": "2026-03-20T11:00:18.000000Z",
+    "updated_at": "2026-03-20T11:00:18.000000Z",
     "inspections": [
       {
+        "id": 7,
+        "asset_id": 1,
+        "inspector_name": "David Wilson",
+        "passed": 1,
+        "notes": "All components functioning properly",
+        "created_at": "2025-10-27T11:00:19.000000Z",
+        "updated_at": "2025-10-27T11:00:19.000000Z"
+      },
+      {
         "id": 6,
-        "inspector_name": "Mike Davis",
-        "passed": 0,
-        "notes": "Software update required",
-        "created_at": "2026-03-02T10:15:56.000000Z"
+        "asset_id": 1,
+        "inspector_name": "Lisa Garcia",
+        "passed": 1,
+        "notes": "Minor cosmetic wear only",
+        "created_at": "2025-11-22T11:00:19.000000Z",
+        "updated_at": "2025-11-22T11:00:19.000000Z"
+      },
+      {
+        "id": 5,
+        "asset_id": 1,
+        "inspector_name": "Lisa Garcia",
+        "passed": 1,
+        "notes": "Good working order",
+        "created_at": "2025-12-20T11:00:19.000000Z",
+        "updated_at": "2025-12-20T11:00:19.000000Z"
       }
     ]
   }
