@@ -1,58 +1,140 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Asset Tracker API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A comprehensive Laravel-based REST API for tracking and managing organizational assets and their inspection records. Built with Laravel 13 and featuring a complete asset management system with inspection history tracking.
 
-## About Laravel
+## 📋 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Asset Management**: Create, view, and manage organizational assets
+- **Inspection Tracking**: Record and track asset inspection history  
+- **Relationship Management**: One-to-many relationship between assets and inspections
+- **RESTful API**: Clean, JSON-based API endpoints
+- **Database Integrity**: Foreign key constraints with cascade delete
+- **Seeded Data**: Pre-populated with sample assets and inspection records
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Technologies Used
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Laravel 13** - Modern PHP framework
+- **PHP 8.3+** - Latest PHP version support
+- **MySQL 8.4** - Database management
+- **Laravel Sail** - Docker development environment
+- **Eloquent ORM** - Database interactions and relationships
 
-## Learning Laravel
+## 📊 Database Structure
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Assets Table
+- `id` - Primary key
+- `name` - Asset name
+- `serial_number` - Unique identifier
+- `status` - Current status (available, assigned, maintenance, retired)
+- `created_at` / `updated_at` - Timestamps
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Inspections Table  
+- `id` - Primary key
+- `asset_id` - Foreign key to assets table
+- `inspector_name` - Name of the inspector
+- `passed` - Boolean inspection result
+- `notes` - Inspection notes and comments
+- `created_at` / `updated_at` - Timestamps
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 🚀 Installation
 
-## Agentic Development
+### Prerequisites
+- Docker and Docker Compose
+- Git
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Setup Instructions
 
-```bash
-composer require laravel/boost --dev
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/shingionline/asset-tracker-api.git
+   cd asset-tracker-api
+   ```
 
-php artisan boost:install
+2. **Install dependencies**
+   ```bash
+   composer install
+   ```
+
+3. **Start the development environment**
+   ```bash
+   vendor/bin/sail up -d
+   ```
+
+4. **Setup database and seed data**
+   ```bash
+   vendor/bin/sail artisan migrate:fresh --seed
+   ```
+
+5. **Access the application**
+   - API Base URL: `http://localhost:8005/api/`
+   - Application runs on port 8005
+
+## 📡 API Endpoints
+
+### Assets
+
+#### Get Asset by ID
+```http
+GET /api/assets/{id}
+```
+Returns an asset with its latest 3 inspections.
+
+**Response Example:**
+```json
+{
+  "asset": {
+    "id": 1,
+    "name": "HP Laptop ProBook 450",
+    "serial_number": "HP450-2024-001", 
+    "status": "available",
+    "inspections": [
+      {
+        "id": 6,
+        "inspector_name": "Mike Davis",
+        "passed": 0,
+        "notes": "Software update required",
+        "created_at": "2026-03-02T10:15:56.000000Z"
+      }
+    ]
+  }
+}
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+#### Create New Asset
+```http
+POST /api/assets
+```
+**Request Body:**
+```json
+{
+  "name": "MacBook Pro M3",
+  "serial_number": "MBP-M3-001",
+  "status": "available"
+}
+```
 
-## Contributing
+## 🧪 Sample Data
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+The application includes comprehensive seed data:
+- **10 Assets**: Various types of organizational assets 
+- **77+ Inspections**: 5-10 inspections per asset with realistic data
+- **8 Inspectors**: Different inspector names for variety
+- **Historical Data**: Inspections spanning the last 6 months
+- **Realistic Results**: 80% pass rate with appropriate notes
 
-## Code of Conduct
+## 🔧 Development Commands
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+# Start services
+vendor/bin/sail up -d
 
-## Security Vulnerabilities
+# Stop services  
+vendor/bin/sail down
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Run migrations
+vendor/bin/sail artisan migrate
 
-## License
+# Reset database with fresh data
+vendor/bin/sail artisan migrate:fresh --seed
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
