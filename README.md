@@ -57,7 +57,7 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
    vendor/bin/sail artisan migrate --seed
    ```
 
-   ⚠️ If you get SQLSTATE[HY000] [2002] Connection refused error just wait a bit for Docker to load then try again
+   ⚠️ If you get SQLSTATE[HY000] [2002] Connection refused error wait for Docker mysql database to load then try again
 
 5. **Access the application**
    - API Base URL: `http://localhost:8005/api/`
