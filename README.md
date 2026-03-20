@@ -38,10 +38,6 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
 
 ## 🚀 Installation
 
-### Prerequisites
-- Docker and Docker Compose
-- Git
-
 ### Setup Instructions
 
 1. **Clone the repository**
