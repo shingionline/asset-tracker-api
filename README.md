@@ -136,12 +136,7 @@ For easy API testing, download the Postman collection:
 
 ## 🧪 Sample Data
 
-The application includes comprehensive seed data:
-- **10 Assets**: Various types of organizational assets 
-- **77+ Inspections**: 5-10 inspections per asset with realistic data
-- **8 Inspectors**: Different inspector names for variety
-- **Historical Data**: Inspections spanning the last 6 months
-- **Realistic Results**: 80% pass rate with appropriate notes
+The application includes comprehensive seed data
 
 ## 🔧 Development Commands
 
