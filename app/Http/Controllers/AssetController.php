@@ -26,6 +26,7 @@ class AssetController extends Controller
                 'message' => 'Asset created successfully',
                 'asset' => $asset,
             ], 200);
+
         } catch (Exception $e) {
             return response()->json([
                 'error' => 'Failed to create asset',
@@ -38,7 +39,7 @@ class AssetController extends Controller
     {
         try {
             $asset = Asset::with(['inspections' => function ($query) {
-                $query->latest()->limit(3);
+                $query->orderBy('id', 'desc')->limit(3);
             }])->findOrFail($id);
 
             return response()->json([
