@@ -13,8 +13,8 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
 
 ## 🛠️ Technologies Used
 
-- **Laravel 13.1.1** - Modern PHP framework
-- **PHP 8.3+** - Latest PHP version support
+- **Laravel 13.1** - Modern PHP framework
+- **PHP 8.3** - Latest PHP version support
 - **MySQL 8.4** - Database management
 - **Laravel Sail** - Docker development environment
 - **Eloquent ORM** - Database interactions and relationships
@@ -26,7 +26,6 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
 - `name` - Asset name
 - `serial_number` - Unique identifier
 - `status` - Current status (available, assigned, maintenance, retired)
-- `created_at` / `updated_at` - Timestamps
 
 ### Inspections Table  
 - `id` - Primary key
@@ -34,7 +33,6 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
 - `inspector_name` - Name of the inspector
 - `passed` - Boolean inspection result
 - `notes` - Inspection notes and comments
-- `created_at` / `updated_at` - Timestamps
 
 ## 🚀 Setup Instructions
 
@@ -58,6 +56,9 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
    ```bash
    vendor/bin/sail artisan migrate --seed
    ```
+
+   > [!WARNING]
+   > If you get SQLSTATE[HY000] [2002] Connection refused error just wait a bit for Docker to load then try again
 
 5. **Access the application**
    - API Base URL: `http://localhost:8005/api/`
