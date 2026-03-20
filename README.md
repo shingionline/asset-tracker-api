@@ -62,7 +62,7 @@ A comprehensive Laravel-based REST API for tracking and managing organizational 
 
 4. **Setup database and seed data**
    ```bash
-   vendor/bin/sail artisan migrate:fresh --seed
+   vendor/bin/sail artisan migrate --seed
    ```
 
 5. **Access the application**
